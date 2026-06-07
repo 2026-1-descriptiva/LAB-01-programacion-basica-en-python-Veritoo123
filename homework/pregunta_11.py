@@ -7,7 +7,18 @@ utilizar pandas, numpy o scipy.
 
 
 def pregunta_11():
-    """
+    result = {}
+
+    with open("files/input/data.csv") as file:
+        for line in file:
+            columns = line.strip().split("\t")
+            number = int(columns[1])
+
+            for letter in columns[3].split(","):
+                result[letter] = result.get(letter, 0) + number
+
+    return dict(sorted(result.items()))
+"""
     Retorne un diccionario que contengan la suma de la columna 2 para cada
     letra de la columna 4, ordenadas alfabeticamente.
 

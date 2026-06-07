@@ -5,9 +5,20 @@ solo puede utilizar las funciones y librerias basicas de python. No puede
 utilizar pandas, numpy o scipy.
 """
 
-
 def pregunta_10():
-    """
+    with open("files/input/data.csv") as file:
+        return [
+            (
+                columns[0],
+                len(columns[3].split(",")),
+                len(columns[4].split(","))
+            )
+            for columns in (
+                line.strip().split("\t")
+                for line in file
+            )
+        ]
+"""
     Retorne una lista de tuplas contengan por cada tupla, la letra de la
     columna 1 y la cantidad de elementos de las columnas 4 y 5.
 

@@ -7,6 +7,15 @@ utilizar pandas, numpy o scipy.
 
 
 def pregunta_02():
+    with open("files/input/data.csv") as file:
+        lines = file.readlines()
+
+    return sorted(
+        (letra, sum(1 for line in lines if line.startswith(letra)))
+        for letra in "ABCDE"
+    )
+
+
     """
     Retorne la cantidad de registros por cada letra de la primera columna como
     la lista de tuplas (letra, cantidad), ordendas alfabéticamente.

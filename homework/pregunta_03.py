@@ -6,7 +6,17 @@ utilizar pandas, numpy o scipy.
 """
 
 
+
 def pregunta_03():
+    result = {}
+
+    for line in open("files/input/data.csv"):
+        parts = line.strip().split("\t")
+        result[parts[0]] = result.get(parts[0], 0) + int(parts[1])
+
+    return sorted(result.items())
+
+
     """
     Retorne la suma de la columna 2 por cada letra de la primera columna como
     una lista de tuplas (letra, suma) ordendas alfabeticamente.

@@ -7,6 +7,8 @@ utilizar pandas, numpy o scipy.
 
 
 def pregunta_01():
+    with open("files/input/data.csv") as file:
+        return sum(int(line.split("\t")[1]) for line in file)
     """
     Retorne la suma de la segunda columna.
 
